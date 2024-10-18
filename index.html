@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vowel Letter Checker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Vowel Letter Checker</h1>
+        <input type="text" id="vowel" placeholder="Enter a letter." maxlength="1">
+        <button onclick="check()">Check</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function check() {
+            const letter = document.getElementById("vowel").value.toLowerCase();
+            const vowels = ['a', 'e', 'i', 'o', 'u'];
+            const result = document.getElementById("result");
+
+            if (vowels.includes(letter)) {
+                result.textContent = `"${letter.toUpperCase()}" is a vowel.`;
+                result.style.color = "green";
+            } else if (letter.match(/[a-z]/)) {
+                result.textContent = `"${letter.toUpperCase()}" is not a vowel.`;
+                result.style.color = "red";
+            } else {
+                result.textContent = "Please enter a valid letter.";
+                result.style.color = "orange";
+            }
+        }
+    </script>
+</body>
+</html>
